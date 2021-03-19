@@ -1,0 +1,31 @@
+{% extends "Notes/page_structure.html" %}
+
+
+
+{% block heading %} 
+	
+	<a href={% url 'Notes:index' %} class="go-back">&#60 back</a> {{ notebook.title }} 
+
+	
+{% endblock %}
+
+{% block date %} 
+	{{ notebook.pub_date |date:"M d, Y H:i"}}
+{% endblock %}  
+
+{% block mynotes %}
+{% load static %} 
+	{% if notebook %}
+	<div class="icons-update-delete">
+	<a class="delete-update-btn" href="{% url 'Notes:update' notebook.title %}"><img class="icon-images" src="{% static 'Notes/images/edit.svg' %}"> Edit</a>
+	<a class="delete-update-btn" href="{% url 'Notes:delete' notebook.title %}"><img class="icon-images" src="{% static 'Notes/images/delete.svg' %}"> Delete</a> 
+	</div>
+		<p class="updated-on">last updated on {{notebook.update_date}} </p>
+		<p class="notes plain-notes">{{ notebook.plain_note}}</p>
+        {% else %}
+		<p class="emptyContent">The note is currently empty, would you like to add conttent</p>
+		
+		{% endif %} 
+		
+{% endblock mynotes %}	
+

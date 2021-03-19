@@ -1,0 +1,25 @@
+{% extends "Notes/page_structure.html" %}
+
+{% block heading %} 
+	My Notes  <a href="{% url 'Notes:create'  %}">&plus; add</a> 
+	<!-- <span style="color: black; font-size: 14px;">&#60; Previous</span>
+	<span style="color: black; font-size: 14px;">&plus;</span> -->
+{% endblock %}
+
+{% block date %} 
+	{% now " F jS, Y " %}
+{% endblock %}  
+
+{% block mynotes %}
+		 {% if Notes_list %}
+		 <ol>
+			{% for note in Notes_list %}
+				<li class="notes-list"><a href="{% url 'Notes:detail' note.title %}">{{ note.title }}  </a></li> 
+		
+		    {% endfor %}
+		</ol>
+		
+        {% else %}
+		    <p class="emptyContent">YOur NoteBook is currently empty. To create new notes, click add </p>
+			{% endif %} 
+{% endblock mynotes %}	

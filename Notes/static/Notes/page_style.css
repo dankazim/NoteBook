@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+	font-family: 'Poppins', sans-serif;	
+} 
+
+body {
+  margin: 0;
+  padding: 0;
+ background-color: rgb(211, 231, 224);
+ 
+}
+.paper {
+  display: table;
+  min-height: 550px;
+  position: absolute;
+  width: 550px;
+  background: rgba(255,255,255,0.9);
+  margin: -275px -225px;
+  left: 50%;
+  top: 50%;
+  box-shadow: 0px 0px 5px 0px #888;
+}
+.paper::before {
+  content: '';
+  position: absolute;
+  left: 45px;
+  height: 100%;
+  width: 2px;
+  background: rgba(255,0,0,0.4);
+}
+/*  .lines {
+  margin-top: 40px;
+  height: calc(100% - 40px);
+  width: 100%;
+  background-image: repeating-linear-gradient(white 0px, white 26px, steelblue 27px);
+}  */
+.text {
+  position: absolute;
+  top: 42px;
+  left: 55px;
+  bottom: 10px;
+  right: 10px;
+  line-height: 0.3; 
+  overflow: hidden;
+  outline: none;
+}
+.holes {
+  position: absolute;
+  left: 10px;
+  height: 25px;
+  width: 25px;
+  background-color: rgb(211, 231, 224);
+  border-radius: 50%;
+  box-shadow: inset 0px 0px 2px 0px #888;
+}
+.hole-top {
+  top: 10%;
+}
+.hole-middle {
+  top: 50%;
+}
+.hole-bottom {
+  bottom: 10%;
+}
+
+footer{
+  color: black;
+  position: absolute;
+  top:92%;
+  left: 25%;
+  text-decoration: underline;
+  
+}
+
+h1{
+  font-size: 20px;
+  text-align: center;
+}
+
+h1 a{
+  float: left;
+  font-size: 18px;
+  text-decoration:none;
+}
+
+h1 a:hover{
+  text-decoration: underline;
+}
+
+.notes{
+  font-size: 14px;
+  line-height: 1.5;
+}
+li{
+  line-height: 20px;
+  padding-bottom: 7px;
+}
+
+
+li a{
+  color: black;
+  text-decoration:none;
+}
+li a:hover{
+  text-decoration: underline;
+}
+
+.datee{
+padding-bottom: 5px;
+float: right;
+}
+
+.emptyContent{
+  font-size: 14px;
+  line-height: 1.5;
+/*   padding-bottom: 7px; */
+}
+
+.icon-images{
+  width: 14px; 
+  height: 14px;
+}
+
+.delete-update-btn{
+  text-decoration: none;
+  padding-right: 10%;
+}
+.icons-update-delete{
+  padding: 0% 30% 0% 30%;
+}
+
+.updated-on{
+  font-size: 13px;
+  font-style: italic;
+  text-decoration: underline;
+
+}
