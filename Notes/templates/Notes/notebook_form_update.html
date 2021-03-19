@@ -1,7 +1,7 @@
 {% extends "Notes/page_structure.html" %}
 
 {% block heading %} 
-<a href={% url 'Notes:index' %} class="go-back">&#60 Cancel</a> Updating {{notebook.title}}
+<a href={% url 'Notes:index' %} class="go-back">&#60 Cancel</a> Updating: {{notebook.title}}
 {% endblock %}
 
 {% block date %} 
@@ -12,7 +12,7 @@
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p}}
-        <input type="submit" value="Saves">
+        <input type="submit" value="update and continue">
     </form>
 
 {% endblock mynotes %}

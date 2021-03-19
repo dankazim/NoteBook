@@ -3,7 +3,6 @@
 	font-family: 'Poppins', sans-serif;
   
 } 
-
 body {
   margin: 0;
   padding: 0;	
@@ -29,12 +28,6 @@ body {
   width: 2px;
   background: rgba(255,0,0,0.4);
 }
-/*  .lines {
-  margin-top: 40px;
-  height: calc(100% - 40px);
-  width: 100%;
-  background-image: repeating-linear-gradient(white 0px, white 26px, steelblue 27px);
-}  */
 .text {
   position: absolute;
   top: 42px;
@@ -70,9 +63,7 @@ footer{
   top:92%;
   left: 25%;
   text-decoration: underline;
-  
 }
-
 h1{
   font-size: 20px;
   text-align: center;
@@ -96,7 +87,9 @@ li{
   line-height: 20px;
   padding-bottom: 7px;
 }
-
+a .go-back{
+font-size: 18px;
+}
 
 li a{
   color: black;
@@ -143,3 +136,4 @@ float: right;
 .confirm{
  margin: 0% 33% 0% 40%;;
 }
+

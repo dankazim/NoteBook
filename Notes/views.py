@@ -7,6 +7,7 @@ from django.views import generic
 from django.utils import timezone
 from .models import NoteBook
 
+
 # Create your views here.
 
 class IndexView(generic.ListView):
@@ -29,7 +30,7 @@ class DeleteNote(generic.DeleteView):
 
 class UpdateNote(generic.UpdateView):
     model = NoteBook
-    fields =['title','plain_note']
+    fields =['plain_note']
     template_name = 'Notes/notebook_form_update.html'  
     update_date = timezone.now()
     success_url ="/note/{title}/"
@@ -39,5 +40,5 @@ class CreateNote(generic.CreateView):
     template_name = 'Notes/notebook_form_add.html'    
     fields =['title','plain_note']
     success_url ="/"
+
     
-   

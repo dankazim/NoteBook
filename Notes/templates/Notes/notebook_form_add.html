@@ -12,7 +12,7 @@
     <form method="POST" action="{% url 'Notes:create' %}" class="add">
         {% csrf_token %}
         {{ form.as_p}}
-        <input type="submit" value="Saves">
+        <input type="submit" value="Add Note">
     </form>
 
 {% endblock mynotes %}
