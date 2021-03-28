@@ -8,6 +8,7 @@ from django.utils import timezone
 from .models import NoteBook
 
 
+
 # Create your views here.
 
 class IndexView(generic.ListView):
@@ -15,7 +16,6 @@ class IndexView(generic.ListView):
     context_object_name = 'Notes_list'
 
     def get_queryset(self):
-        """Return the last five published questions."""
         return NoteBook.objects.order_by('-pub_date')
 
 
@@ -35,10 +35,33 @@ class UpdateNote(generic.UpdateView):
     update_date = timezone.now()
     success_url ="/note/{title}/"
 
-class CreateNote(generic.CreateView):
+""" class CreateNote(generic.CreateView):
     model = NoteBook
     template_name = 'Notes/notebook_form_add.html'    
-    fields =['title','plain_note']
-    success_url ="/"
+    fields =['title','plain_note'] 
+    success_url ="/" 
+ """
+class NewNote(generic.TemplateView):
+    template_name = 'Notes/add.html' 
 
-    
+def CreateNote(request):
+    title=request.POST["title"]
+    plain_note = request.POST["plain_note"]
+
+    if NoteBook.objects.filter(pk=title).exists() !=True:
+        notekeeper = NoteBook(title,timezone.now(),plain_note,timezone.now())
+        notekeeper.save()
+        return HttpResponseRedirect(reverse('Notes:index'))
+    return HttpResponseRedirect(reverse('Notes:index'))
+
+
+""" class NoteUpdate(generic.TemplateView):
+   template_name = 'Notes/notebook_form_update.html'  
+
+def UpdateNote(request):
+    title=request.POST["title"]
+    plain_note = request.POST["plain_note"]
+    object,filter
+    notekeeper = NoteBook(title,timezone.now(),plain_note,timezone.now())
+    notekeeper.save()
+    return HttpResponseRedirect(reverse('Notes:index')) """

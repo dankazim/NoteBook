@@ -137,3 +137,14 @@ float: right;
  margin: 0% 33% 0% 40%;;
 }
 
+input, textarea{
+  outline: none;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  line-height: 1.5;
+  width: 100%;
+}
+textarea{
+  padding-bottom: 5%;
+}

@@ -1,7 +1,7 @@
 {% extends "Notes/page_structure.html" %}
 
 {% block heading %} 
-	My Notes  <a href="{% url 'Notes:create'  %}">&plus; add</a> 
+	My Notes  <a href="{% url 'Notes:newnote'  %}">&plus; add</a> 
 	<!-- <span style="color: black; font-size: 14px;">&#60; Previous</span>
 	<span style="color: black; font-size: 14px;">&plus;</span> -->
 {% endblock %}
@@ -20,6 +20,6 @@
 		</ol>
 		
         {% else %}
-		    <p class="emptyContent">YOur NoteBook is currently empty. To create new notes, click add </p>
+		    <p class="emptyContent">Your NoteBook is currently empty. To create new notes, click add </p>
 			{% endif %} 
 {% endblock mynotes %}	

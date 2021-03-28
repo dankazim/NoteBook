@@ -3,9 +3,9 @@ from django.utils import timezone
 import datetime
 
 class NoteBook(models.Model):
-    title = models.CharField(max_length=20, primary_key=True )
-    pub_date = models.DateTimeField('Date Created',auto_now_add=True, blank=True)
-    plain_note = models.TextField(blank=True, max_length=1040)
+    title = models.CharField(max_length=20, primary_key=True, blank=False)
+    pub_date = models.DateTimeField('Date Created',auto_now_add=True)
+    plain_note = models.TextField(blank=False, max_length=1040)
     update_date = models.DateTimeField('Date Modified', auto_now=True)
 
     def was_created_recently(self):
@@ -17,3 +17,5 @@ class NoteBook(models.Model):
 
     def __str__ (self):
         return "{}".format(self.title)
+    
+ 

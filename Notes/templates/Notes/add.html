@@ -1,0 +1,30 @@
+{% extends "Notes/page_structure.html" %}
+
+{% block heading %} 
+<a href={% url 'Notes:index' %} class="go-back">&#60 Cancel</a>Creating New Note
+{% endblock %}
+
+{% block date %} 
+    {% now " F jS, Y " %}   
+{% endblock %}  
+
+{% block mynotes %}
+<form method="POST" action="{% url 'Notes:create' %}" class="add">
+    {% csrf_token %}
+ 
+    <input type="text" id="title" name="title" required="required" placeholder="What is the TITLE of your note" class="title"> </br>
+
+ 
+    <textarea type="text" id="plain_note" name="plain_note" required="required" placeholder="You can type the content of your note here. And when you are done please click on the Add button bellow"></textarea></br>
+    <button type="submit" value="">Add Note</button>
+</form>
+
+{% endblock mynotes %}
+
+
+
+  <!--  <form method="POST" action="{% url 'Notes:create' %}" class="add">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <input type="submit" value="Add Note">
+    </form> -->
