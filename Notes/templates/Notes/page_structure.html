@@ -8,9 +8,6 @@
     <link rel="stylesheet" type="text/css" href="{% static 'Notes/page_style.css' %}">
     <link rel="icon" href="{% static 'Notes/images/favicon.svg' %}" type="image/x-icon"/>
     <title>My Notes</title>
-
-    
-
 </head>
 <body>
     <div class="paper">
@@ -28,13 +25,23 @@
         <div class="holes hole-top"></div>
         <div class="holes hole-middle"></div>
         <div class="holes hole-bottom"></div>
+
+        {% for message in messages %}
+        <div role="alert">
+          {{ message }}
+          <a type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+        </div>
+  
+  {% endfor %}
+
+       
         <footer>Created by dankazim | March 19, 2021</footer>
     </div>
    
 </body>
 </html>
 
-<script>
+<!-- <script>
         window.ub.form.validationMessages.title = 'Please write the title of your note';
         window.ub.form.validationMessages.plain_note = 'Please write content for your note';
-</script>
+</script> -->
