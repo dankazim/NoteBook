@@ -65,12 +65,12 @@ class UpdateTest(TestCase):
 
     def test_update_body(self):
         response = self.client.post(reverse('Notes:create'), {"title":'1-title', "plain_note":'1-plain_note'}, follow=True)
-        response = self.client.post(reverse('Notes:update'), {"title":'1-title', "plain_note":'2-plain_note'}, follow=True)
+        response = self.client.post(reverse('Notes:update', args=['1-title']), {"title":'1-title', "plain_note":'2-plain_note'}, follow=True)
         self.assertEqual(response.status_code, 200)
     
     def test_update_no_changes(self):
         response = self.client.post(reverse('Notes:create'), {"title":'1-title', "plain_note":'1-plain_note'}, follow=True)
-        response = self.client.post(reverse('Notes:update'), {"title":'1-title', "plain_note":'1-plain_note'}, follow=True)
+        response = self.client.post(reverse('Notes:update', args=['1-title']), {"title":'1-title', "plain_note":'1-plain_note'}, follow=True)
         self.assertEqual(response.status_code, 200)
     
 class ViewsTests(TestCase):
