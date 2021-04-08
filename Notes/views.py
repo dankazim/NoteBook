@@ -56,7 +56,7 @@ def CreateNote(request):
     if NoteBook.objects.filter(pk=title).exists() !=True:
         notekeeper = NoteBook(title,timezone.now(),plain_note,timezone.now())
         notekeeper.save()
-        messages.success(request, "{} note has been created".format(title))
+        messages.success(request, "New note has been created")
         return HttpResponseRedirect(reverse('Notes:index'))
     messages.warning(request, "Title is in use, Try using another name!")
     return HttpResponseRedirect(reverse('Notes:index'))
@@ -64,7 +64,6 @@ def CreateNote(request):
 
 """ class NoteUpdate(generic.TemplateView):
    template_name = 'Notes/notebook_form_update.html'  
-
 def UpdateNote(request):
     title=request.POST["title"]
     plain_note = request.POST["plain_note"]

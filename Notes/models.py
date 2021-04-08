@@ -1,8 +1,10 @@
 from django.db import models
 from django.utils import timezone
 import datetime
+from django.contrib.auth.models import User
 
 class NoteBook(models.Model):
+   # user= models.ForeignKey(User,on_delete=models.CASCADE)  
     title = models.CharField(max_length=20, primary_key=True, blank=False)
     pub_date = models.DateTimeField('Date Created',auto_now_add=True)
     plain_note = models.TextField( max_length=1040, blank=False,)

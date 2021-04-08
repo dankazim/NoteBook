@@ -95,7 +95,7 @@ li a{
   color: black;
   text-decoration:none;
 }
-li a:hover{
+li a:hover,.logout{
   text-decoration: underline;
 }
 
@@ -147,4 +147,19 @@ input, textarea{
 }
 textarea{
   padding-bottom: 5%;
+}
+.logout{
+  float: right;
+  padding-right: 2%;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
+}
+.pLog{
+ margin-left: 75%;
+ text-transform: uppercase;
+}
+
+.msg{
+  color: aquamarine;
 }

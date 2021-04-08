@@ -11,31 +11,31 @@
 </head>
 <body>
     <div class="paper">
+      <p class="pLog" > {{user}} |<a href="{% url 'logout'%}" class="logout">Logout</a></p>
         <div class="lines">
           <div class="text">
-            
             <p class="datee">{% block date %} date{% endblock  %}</p>
             <h1>{% block heading %} heading {% endblock %} </h1>
             {% block mynotes %}
             content
             {% endblock mynotes %}
 
+            {% for message in messages %}
+            <div role="alert" class="msg">
+             <p>{{ message }}</p> 
+            </div>
+            {% endfor %}
           </div>
         </div>
         <div class="holes hole-top"></div>
         <div class="holes hole-middle"></div>
         <div class="holes hole-bottom"></div>
 
-        {% for message in messages %}
-        <div role="alert">
-          {{ message }}
-          <a type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></a>
-        </div>
-  
-  {% endfor %}
+        
 
        
         <footer>Created by dankazim | March 19, 2021</footer>
+       
     </div>
    
 </body>
