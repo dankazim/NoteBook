@@ -29,19 +29,19 @@ class CreateTest(TestCase):
     def test_empty_title(self):
         response = self.client.post(reverse('Notes:create'),{"title":'', "plain_note":'plain note 1'}, follow=True)
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "People provide a title and content for your note")
+        self.assertContains(response, "please provide a title and content for your note")
 
      #test if a note can be create with empty body   
     def test_empty_body(self):
         response = self.client.post(reverse('Notes:create'),{"title":'1-title', "plain_note":''}, follow=True)
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "People provide a title and content for your note")        
+        self.assertContains(response, "please provide a title and content for your note")        
 
      #test if a note can be create with empty title and body   
     def test_empty_note(self):
         response = self.client.post(reverse('Notes:create'),{"title":'', "plain_note":''}, follow=True)
         self.assertEqual(response.status_code, 200) 
-        self.assertContains(response, "People provide a title and content for your note")
+        self.assertContains(response, "please provide a title and content for your note")
 
 class DeleteTests(TestCase):
     def test_delete(self):
@@ -62,6 +62,11 @@ class UpdateTest(TestCase):
         time = timezone.now() - datetime.timedelta(hours=23, minutes=59, seconds=59)
         recent_note = NoteBook(update_date=time)
         self.assertIs(recent_note.was_updated_recently(), True)
+    
+    def test_update_title(self):
+        response = self.client.post(reverse('Notes:create'), {"title":'1-title', "plain_note":'1-plain_note'}, follow=True)
+        response = self.client.post(reverse('Notes:update', args=['1-title']), {"title":'2-title', "plain_note":'2-plain_note'}, follow=True)
+        self.assertEqual(response.status_code, 200)
 
     def test_update_body(self):
         response = self.client.post(reverse('Notes:create'), {"title":'1-title', "plain_note":'1-plain_note'}, follow=True)
@@ -82,6 +87,11 @@ class ViewsTests(TestCase):
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'NoteBook is currently empty')
+
+
+
+
+
 
 
 

@@ -17,6 +17,9 @@ class NoteBook(models.Model):
         now = timezone.now()
         return now - datetime.timedelta(days=1) <= self.update_date <= now
 
+    def get_absolute_url(self):
+        return reverse('update', kwargs={'pk':self.pk})
+
     def __str__ (self):
         return "{}".format(self.title)
     
